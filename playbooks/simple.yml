@@ -2,6 +2,9 @@
 # Expclicitly tells ansible to gather facts. Default is TRUE
   gather_facts: true 
   tasks:
-  - name: print hostname
+  - name: print architecture
     ansible.builtin.debug:
       var: ansible_architecture 
+  - name: print ip address
+    ansible.builtin.debug:
+      var: ansible_all_ipv4_addresses[0]
