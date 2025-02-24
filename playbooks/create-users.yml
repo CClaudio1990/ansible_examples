@@ -1,9 +1,11 @@
 ---
-- hosts: vm2
+- hosts: fedora2 
   become: yes
 
   tasks:
   - name: Create bacha user
-    user: 
-     name: bacha
-     password: redhat
+    ansible.builtin.user: 
+      name: "{{ item }}"
+    with_items:
+      - bacha
+      - cclaudio
